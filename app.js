@@ -5,14 +5,14 @@
 var express = require('express'),
     routes = require('./routes'),
     sio = require('socket.io'),
-    gpio = require('pi-gpio'),
+    //gpio = require('pi-gpio'),
     crypto = require('crypto'),
     async = require('async'),
-    tank = {},
-    _leftMotorFront  = 11,
-    _leftMotorBack   = 12,
-    _rightMotorFront = 15,
-    _rightMotorBack  = 16,
+    //tank = {},
+    //_leftMotorFront  = 11,
+    //_leftMotorBack   = 12,
+    //_rightMotorFront = 15,
+    //_rightMotorBack  = 16,
     app = module.exports = express.createServer(),
     io = sio.listen(app);
 
@@ -42,41 +42,47 @@ console.log('Listening %d in %s mode', app.address().port, app.settings.env);
 
 tank.initPins = function(){
   async.parallel([
-    gpio.open(_leftMotorFront),
-    gpio.open(_leftMotorBack),
-    gpio.open(_rightMotorFront),
-    gpio.open(_rightMotorBack)
+//    gpio.open(_leftMotorFront),
+//    gpio.open(_leftMotorBack),
+//    gpio.open(_rightMotorFront),
+//    gpio.open(_rightMotorBack)
+    console.log("Initiating D-Pad");
   ]);
 };
 
 tank.moveForward = function(){
   async.parallel([
-    gpio.write(_leftMotorFront, 1),
-    gpio.write(_rightMotorFront, 1)
+//    gpio.write(_leftMotorFront, 1),
+//    gpio.write(_rightMotorFront, 1)
+    console.log("Up");
   ]);
 };
 
 tank.moveBackward = function(){
   async.parallel([
-    gpio.write(_leftMotorBack, 1),
-    gpio.write(_rightMotorBack, 1)
+//    gpio.write(_leftMotorBack, 1),
+//    gpio.write(_rightMotorBack, 1)
+    console.log("Down");
   ]);
 };
 
 tank.turnLeft = function(){
-  gpio.write(_rightMotorFront, 1);
+//  gpio.write(_rightMotorFront, 1);
+    console.log("Left");
 };
 
 tank.turnRight = function(){
-  gpio.write(_leftMotorFront, 1);
+//  gpio.write(_leftMotorFront, 1);
+    console.log("Right")
 };
 
 tank.stopAllMotors = function(){
   async.parallel([
-    gpio.write(_leftMotorFront, 0),
-    gpio.write(_leftMotorBack, 0),
-    gpio.write(_rightMotorFront, 0),
-    gpio.write(_rightMotorBack, 0)
+//    gpio.write(_leftMotorFront, 0),
+//    gpio.write(_leftMotorBack, 0),
+//    gpio.write(_rightMotorFront, 0),
+//    gpio.write(_rightMotorBack, 0)
+    console.log("All Motors Off")
   ]);
 };
 
