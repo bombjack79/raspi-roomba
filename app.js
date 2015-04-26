@@ -8,7 +8,7 @@ var express = require('express'),
     //gpio = require('pi-gpio'),
     crypto = require('crypto'),
     async = require('async'),
-    //tank = {},
+    tank = {},
     //_leftMotorFront  = 11,
     //_leftMotorBack   = 12,
     //_rightMotorFront = 15,
@@ -46,7 +46,7 @@ tank.initPins = function(){
 //    gpio.open(_leftMotorBack),
 //    gpio.open(_rightMotorFront),
 //    gpio.open(_rightMotorBack)
-    console.log("Initiating D-Pad");
+    console.log("Initiating D-Pad")
   ]);
 };
 
@@ -54,7 +54,7 @@ tank.moveForward = function(){
   async.parallel([
 //    gpio.write(_leftMotorFront, 1),
 //    gpio.write(_rightMotorFront, 1)
-    console.log("Up");
+    console.log("Up")
   ]);
 };
 
@@ -62,7 +62,7 @@ tank.moveBackward = function(){
   async.parallel([
 //    gpio.write(_leftMotorBack, 1),
 //    gpio.write(_rightMotorBack, 1)
-    console.log("Down");
+    console.log("Down")
   ]);
 };
 
